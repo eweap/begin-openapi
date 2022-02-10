@@ -9,7 +9,20 @@
       "url": "http://localhost:3000"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "operationId": "get-status"
+      }
+    }
+  },
   "components": {
     "schemas": {}
   }
