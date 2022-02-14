@@ -76,12 +76,35 @@
       "get": {
         "summary": "",
         "tags": [],
+        "operationId": "get-status",
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "isUnderMaintenance": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "isUnderMaintenance"
+                  ]
+                }
+              }
+            }
           }
-        },
-        "operationId": "get-status"
+        }
       }
     }
   },
