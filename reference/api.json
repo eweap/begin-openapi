@@ -12,7 +12,7 @@
   "paths": {
     "/admin/auth/api-token": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {
           "200": {
@@ -74,7 +74,7 @@
     },
     "/status": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {
           "204": {
