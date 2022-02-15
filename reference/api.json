@@ -163,6 +163,58 @@
           "id",
           "email"
         ]
+      },
+      "AuthPayloadToken": {
+        "type": "object",
+        "title": "AuthPayloadToken",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "user",
+              "admin"
+            ]
+          },
+          "iss": {
+            "type": "string"
+          },
+          "iat": {
+            "type": "number"
+          },
+          "exp": {
+            "type": "number"
+          },
+          "aud": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "uid": {
+            "type": "string"
+          },
+          "refreshTokenId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "iss",
+          "iat",
+          "exp",
+          "aud",
+          "sub",
+          "uid",
+          "refreshTokenId"
+        ]
       }
     }
   }
