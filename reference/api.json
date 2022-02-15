@@ -198,9 +198,15 @@
             "type": "string"
           },
           "refreshTokenId": {
-            "type": [
-              "string",
-              "null"
+            "oneOf": [
+              {
+                "type": "string",
+                "properties": {}
+              },
+              {
+                "type": "null",
+                "properties": {}
+              }
             ]
           }
         },
@@ -212,8 +218,7 @@
           "exp",
           "aud",
           "sub",
-          "uid",
-          "refreshTokenId"
+          "uid"
         ]
       }
     }
