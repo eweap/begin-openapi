@@ -4,7 +4,11 @@
     "title": "admin",
     "version": "1.0"
   },
-  "servers": [],
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
   "paths": {
     "/admin/auth/api-token": {
       "get": {
