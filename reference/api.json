@@ -194,7 +194,8 @@
             "type": "string"
           },
           "refreshTokenId": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "required": [
