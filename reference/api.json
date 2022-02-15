@@ -175,8 +175,8 @@
           "type": {
             "type": "string",
             "enum": [
-              "user",
-              "admin"
+              "admin",
+              "agent"
             ]
           },
           "iss": {
