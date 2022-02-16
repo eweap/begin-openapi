@@ -106,6 +106,26 @@
           }
         }
       }
+    },
+    "/admin/me": {
+      "get": {
+        "summary": "",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admin"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-user-me"
+      },
+      "parameters": []
     }
   },
   "components": {
