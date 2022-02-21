@@ -35,7 +35,8 @@
             }
           }
         },
-        "operationId": "get-auth-api-token"
+        "operationId": "get-auth-api-token",
+        "parameters": []
       },
       "parameters": []
     },
@@ -138,6 +139,29 @@
             "description": "No Content"
           }
         }
+      }
+    },
+    "/clients": {
+      "get": {
+        "summary": "",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-clients"
       }
     }
   },
