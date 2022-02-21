@@ -10,7 +10,7 @@
     }
   ],
   "paths": {
-    "/admin/auth/api-token": {
+    "/auth/api-token": {
       "get": {
         "summary": "",
         "tags": [],
@@ -36,9 +36,10 @@
           }
         },
         "operationId": "get-admin-auth-api-token"
-      }
+      },
+      "parameters": []
     },
-    "/admin/auth/login": {
+    "/auth/login": {
       "post": {
         "summary": "",
         "operationId": "post-admin-auth-login",
@@ -70,7 +71,8 @@
             }
           }
         }
-      }
+      },
+      "parameters": []
     },
     "/status": {
       "get": {
@@ -107,7 +109,7 @@
         }
       }
     },
-    "/admin/me": {
+    "/me": {
       "get": {
         "summary": "",
         "tags": [],
@@ -126,6 +128,17 @@
         "operationId": "get-admin-me"
       },
       "parameters": []
+    },
+    "/auth/logout": {
+      "delete": {
+        "summary": "",
+        "operationId": "delete-auth-logout",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
     }
   },
   "components": {
