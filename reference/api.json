@@ -35,14 +35,14 @@
             }
           }
         },
-        "operationId": "get-admin-auth-api-token"
+        "operationId": "get-auth-api-token"
       },
       "parameters": []
     },
     "/auth/login": {
       "post": {
         "summary": "",
-        "operationId": "post-admin-auth-login",
+        "operationId": "post-auth-login",
         "responses": {
           "204": {
             "description": "No Content"
@@ -125,7 +125,7 @@
             }
           }
         },
-        "operationId": "get-admin-me"
+        "operationId": "get-me"
       },
       "parameters": []
     },
