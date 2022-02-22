@@ -402,11 +402,23 @@
           "email": {
             "type": "string",
             "format": "email"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
           }
         },
         "required": [
           "id",
-          "email"
+          "email",
+          "firstName",
+          "lastName",
+          "phone"
         ]
       },
       "AuthPayloadToken": {
