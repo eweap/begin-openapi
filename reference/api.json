@@ -469,6 +469,22 @@
           },
           "phone": {
             "type": "string"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "other"
+            ]
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date"
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri"
           }
         },
         "required": [
@@ -476,7 +492,10 @@
           "email",
           "firstName",
           "lastName",
-          "phone"
+          "phone",
+          "gender",
+          "birthdate",
+          "avatar"
         ]
       },
       "AuthPayloadToken": {
