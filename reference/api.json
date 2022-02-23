@@ -480,7 +480,7 @@
           },
           "birthdate": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "avatar": {
             "type": "string",
