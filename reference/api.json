@@ -368,6 +368,57 @@
           }
         }
       }
+    },
+    "/matches": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Match"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-matches"
+      }
+    },
+    "/matches/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Match"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-match"
+      }
     }
   },
   "components": {
@@ -489,11 +540,45 @@
           "date": {
             "type": "string",
             "format": "date-time"
+          },
+          "client1Id": {
+            "type": "string"
+          },
+          "client2Id": {
+            "type": "string"
           }
         },
         "required": [
           "id",
-          "date"
+          "date",
+          "client1Id",
+          "client2Id"
+        ]
+      },
+      "Match": {
+        "type": "object",
+        "title": "Match",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "client1Id": {
+            "type": "string"
+          },
+          "client2Id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "client1Id",
+          "client2Id",
+          "score"
         ]
       }
     }
