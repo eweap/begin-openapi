@@ -461,6 +461,10 @@
             "type": "string",
             "format": "email"
           },
+          "avatar": {
+            "type": "string",
+            "format": "uri"
+          },
           "firstName": {
             "type": "string"
           },
@@ -482,20 +486,20 @@
             "type": "string",
             "format": "date-time"
           },
-          "avatar": {
-            "type": "string",
-            "format": "uri"
+          "birthplace": {
+            "type": "string"
           }
         },
         "required": [
           "id",
           "email",
+          "avatar",
           "firstName",
           "lastName",
           "phone",
           "gender",
           "birthdate",
-          "avatar"
+          "birthplace"
         ]
       },
       "AuthPayloadToken": {
