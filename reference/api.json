@@ -486,7 +486,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "birthplace": {
+          "city": {
             "type": "string"
           }
         },
@@ -499,7 +499,7 @@
           "phone",
           "gender",
           "birthdate",
-          "birthplace"
+          "city"
         ]
       },
       "AuthPayloadToken": {
