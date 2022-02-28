@@ -501,7 +501,8 @@
           },
           "avatar": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "nullable": true
           },
           "firstName": {
             "type": "string"
