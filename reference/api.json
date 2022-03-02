@@ -71,7 +71,8 @@
               }
             }
           }
-        }
+        },
+        "parameters": []
       },
       "parameters": []
     },
@@ -608,13 +609,17 @@
           },
           "client2Id": {
             "type": "string"
+          },
+          "place": {
+            "type": "string"
           }
         },
         "required": [
           "id",
           "date",
           "client1Id",
-          "client2Id"
+          "client2Id",
+          "place"
         ]
       },
       "Match": {
