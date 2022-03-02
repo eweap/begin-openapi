@@ -97,7 +97,8 @@
                       ]
                     },
                     "isUnderMaintenance": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "default": false
                     }
                   },
                   "required": [
@@ -249,7 +250,7 @@
         }
       ],
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {
           "200": {
@@ -302,7 +303,7 @@
     },
     "/clients/{id}": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {},
         "operationId": "get-client",
@@ -372,7 +373,7 @@
     },
     "/matches": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {
           "200": {
@@ -404,7 +405,7 @@
         }
       ],
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "",
         "tags": [],
         "responses": {
           "200": {
