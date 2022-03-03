@@ -202,6 +202,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
+                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/components/schemas/Meeting"
                   }
@@ -382,6 +383,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
+                  "uniqueItems": true,
                   "items": {
                     "$ref": "#/components/schemas/Match"
                   }
@@ -456,6 +458,116 @@
                 "properties": {}
               }
             }
+          }
+        }
+      }
+    },
+    "/questions": {
+      "post": {
+        "summary": "",
+        "operationId": "post-question",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "",
+        "operationId": "get-questions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/questions/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-question"
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-question",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "delete-question",
+        "responses": {
+          "204": {
+            "description": "No Content"
           }
         }
       }
@@ -647,6 +759,252 @@
           "client1Id",
           "client2Id",
           "score"
+        ]
+      },
+      "QuestionText": {
+        "type": "object",
+        "title": "QuestionText",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "text"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type"
+        ]
+      },
+      "QuestionNumericNumber": {
+        "type": "object",
+        "title": "QuestionNumericNumber",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "numeric"
+            ]
+          },
+          "subtype": {
+            "type": "string",
+            "enum": [
+              "number"
+            ]
+          },
+          "min": {
+            "type": "number",
+            "nullable": true
+          },
+          "max": {
+            "type": "number",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type",
+          "subtype",
+          "min",
+          "max"
+        ]
+      },
+      "QuestionNumericRange": {
+        "type": "object",
+        "title": "QuestionNumericNumber",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "numeric"
+            ]
+          },
+          "subtype": {
+            "type": "string",
+            "enum": [
+              "range"
+            ]
+          },
+          "min": {
+            "type": "number",
+            "default": 0
+          },
+          "max": {
+            "type": "number",
+            "default": 100
+          },
+          "step": {
+            "type": "number",
+            "default": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type",
+          "subtype",
+          "min",
+          "max",
+          "step"
+        ]
+      },
+      "QuestionCheckbox": {
+        "type": "object",
+        "title": "QuestionCheckbox",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "checkbox"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type",
+          "options"
+        ]
+      },
+      "QuestionRadio": {
+        "type": "object",
+        "title": "QuestionRadio",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "radio"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type",
+          "options"
+        ]
+      },
+      "Question": {
+        "title": "Question",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/QuestionText"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionCheckbox"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionRadio"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionNumericNumber"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionNumericRange"
+          }
         ]
       }
     }
