@@ -959,10 +959,7 @@
             "$ref": "#/components/schemas/QuestionRadio"
           },
           {
-            "$ref": "#/components/schemas/QuestionNumericNumber"
-          },
-          {
-            "$ref": "#/components/schemas/QuestionNumericRange"
+            "$ref": "#/components/schemas/QuestionNumeric"
           }
         ]
       }
