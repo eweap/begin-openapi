@@ -790,9 +790,9 @@
           "type"
         ]
       },
-      "QuestionNumericNumber": {
+      "QuestionNumeric": {
         "type": "object",
-        "title": "QuestionNumericNumber",
+        "title": "QuestionNumericInput",
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -811,69 +811,28 @@
               "numeric"
             ]
           },
-          "subtype": {
+          "inputType": {
             "type": "string",
             "enum": [
-              "number"
-            ]
+              "number",
+              "slider"
+            ],
+            "default": "number"
           },
           "min": {
             "type": "number",
+            "default": 0,
             "nullable": true
           },
           "max": {
             "type": "number",
+            "default": 100,
             "nullable": true
-          }
-        },
-        "required": [
-          "id",
-          "title",
-          "required",
-          "type",
-          "subtype",
-          "min",
-          "max"
-        ]
-      },
-      "QuestionNumericRange": {
-        "type": "object",
-        "title": "QuestionNumericNumber",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "required": {
-            "type": "boolean",
-            "default": false
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "numeric"
-            ]
-          },
-          "subtype": {
-            "type": "string",
-            "enum": [
-              "range"
-            ]
-          },
-          "min": {
-            "type": "number",
-            "default": 0
-          },
-          "max": {
-            "type": "number",
-            "default": 100
           },
           "step": {
             "type": "number",
-            "default": 1
+            "default": 1,
+            "minimum": 0
           }
         },
         "required": [
@@ -881,7 +840,7 @@
           "title",
           "required",
           "type",
-          "subtype",
+          "inputType",
           "min",
           "max",
           "step"
