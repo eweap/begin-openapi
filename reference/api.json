@@ -790,9 +790,9 @@
           "type"
         ]
       },
-      "QuestionNumeric": {
+      "QuestionNumber": {
         "type": "object",
-        "title": "QuestionNumericInput",
+        "title": "QuestionNumber",
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -808,16 +808,8 @@
           "type": {
             "type": "string",
             "enum": [
-              "numeric"
+              "number"
             ]
-          },
-          "inputType": {
-            "type": "string",
-            "enum": [
-              "number",
-              "range"
-            ],
-            "default": "number"
           },
           "min": {
             "type": "number",
@@ -828,6 +820,45 @@
             "type": "number",
             "default": 100,
             "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "required",
+          "type",
+          "min",
+          "max"
+        ]
+      },
+      "QuestionSlider": {
+        "type": "object",
+        "title": "QuestionSlider",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "slider"
+            ]
+          },
+          "min": {
+            "type": "number",
+            "default": 0
+          },
+          "max": {
+            "type": "number",
+            "default": 100
           },
           "step": {
             "type": "number",
@@ -840,7 +871,6 @@
           "title",
           "required",
           "type",
-          "inputType",
           "min",
           "max",
           "step"
@@ -959,7 +989,10 @@
             "$ref": "#/components/schemas/QuestionRadio"
           },
           {
-            "$ref": "#/components/schemas/QuestionNumeric"
+            "$ref": "#/components/schemas/QuestionNumber"
+          },
+          {
+            "$ref": "#/components/schemas/QuestionSlider"
           }
         ]
       }
