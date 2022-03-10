@@ -592,7 +592,16 @@
             }
           }
         },
-        "operationId": "get-answers"
+        "operationId": "get-answers",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "clientId"
+          }
+        ]
       },
       "post": {
         "summary": "",
@@ -618,7 +627,8 @@
             }
           }
         }
-      }
+      },
+      "parameters": []
     },
     "/answers/{id}": {
       "parameters": [
