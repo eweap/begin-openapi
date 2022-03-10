@@ -1118,8 +1118,18 @@
         ]
       },
       "Answer": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AnswerString"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerNumber"
+          }
+        ]
+      },
+      "AnswerString": {
         "type": "object",
-        "title": "Answer",
+        "title": "AnswerString",
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -1132,20 +1142,34 @@
             "type": "string"
           },
           "value": {
-            "oneOf": [
-              {
-                "type": "string",
-                "properties": {}
-              },
-              {
-                "type": "number",
-                "properties": {}
-              },
-              {
-                "properties": {},
-                "nullable": true
-              }
-            ]
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "clientId",
+          "questionId",
+          "value"
+        ]
+      },
+      "AnswerNumber": {
+        "type": "object",
+        "title": "AnswerNumber",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "questionId": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "nullable": true
           }
         },
         "required": [
