@@ -143,7 +143,7 @@
         }
       }
     },
-    "/clients": {
+    "/customers": {
       "get": {
         "summary": "",
         "tags": [],
@@ -156,25 +156,25 @@
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
-                    "$ref": "#/components/schemas/Client"
+                    "$ref": "#/components/schemas/Customer"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "get-clients"
+        "operationId": "get-customers"
       },
       "post": {
         "summary": "",
-        "operationId": "post-client",
+        "operationId": "post-customer",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Client"
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             }
@@ -184,7 +184,153 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Client"
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/customers/{id}": {
+      "get": {
+        "summary": "",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-customer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-customer",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "",
+        "operationId": "delete-customer",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/customers/{id}/file": {
+      "get": {
+        "summary": "",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerFile"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-customer-file",
+        "parameters": []
+      },
+      "post": {
+        "summary": "",
+        "operationId": "post-customer-file",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerFile"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerFile"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "",
+        "operationId": "patch-customer-file",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerFile"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerFile"
               }
             }
           }
@@ -302,160 +448,6 @@
         }
       }
     },
-    "/clients/{id}": {
-      "get": {
-        "summary": "",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-client",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Client"
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "summary": "",
-        "operationId": "patch-client",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Client"
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Client"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Client"
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "delete": {
-        "summary": "",
-        "operationId": "delete-client",
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
-    },
-    "/clients/{id}/file": {
-      "get": {
-        "summary": "",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/components/schemas/ClientFile"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-client-file",
-        "parameters": []
-      },
-      "post": {
-        "summary": "",
-        "operationId": "post-client-file",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientFile"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClientFile"
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "patch": {
-        "summary": "",
-        "operationId": "patch-client-file",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientFile"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClientFile"
-              }
-            }
-          }
-        }
-      }
-    },
     "/matches": {
       "get": {
         "summary": "",
@@ -537,10 +529,7 @@
         "requestBody": {
           "content": {
             "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
+              "schema": {}
             }
           }
         }
@@ -685,9 +674,9 @@
           "email"
         ]
       },
-      "Client": {
+      "Customer": {
         "type": "object",
-        "title": "Client",
+        "title": "Customer",
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -750,12 +739,12 @@
           "updatedAt"
         ]
       },
-      "ClientFile": {
+      "CustomerFile": {
         "type": "object",
-        "title": "ClientFile",
+        "title": "CustomerFile",
         "additionalProperties": false,
         "properties": {
-          "clientId": {
+          "customerId": {
             "type": "string"
           },
           "answers": {
@@ -776,7 +765,7 @@
           }
         },
         "required": [
-          "clientId",
+          "customerId",
           "answers",
           "createdAt",
           "updatedAt"
@@ -844,10 +833,10 @@
             "type": "string",
             "format": "date-time"
           },
-          "client1Id": {
+          "customer1Id": {
             "type": "string"
           },
-          "client2Id": {
+          "customer2Id": {
             "type": "string"
           },
           "place": {
@@ -857,8 +846,8 @@
         "required": [
           "id",
           "date",
-          "client1Id",
-          "client2Id",
+          "customer1Id",
+          "customer2Id",
           "place"
         ]
       },
@@ -870,10 +859,10 @@
           "id": {
             "type": "string"
           },
-          "client1Id": {
+          "customer1Id": {
             "type": "string"
           },
-          "client2Id": {
+          "customer2Id": {
             "type": "string"
           },
           "score": {
@@ -883,8 +872,8 @@
         },
         "required": [
           "id",
-          "client1Id",
-          "client2Id",
+          "customer1Id",
+          "customer2Id",
           "score"
         ]
       },
