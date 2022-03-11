@@ -372,6 +372,90 @@
         }
       }
     },
+    "/clients/{id}/file": {
+      "get": {
+        "summary": "",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/ClientFile"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-client-file",
+        "parameters": []
+      },
+      "post": {
+        "summary": "",
+        "operationId": "post-client-file",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientFile"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientFile"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "",
+        "operationId": "patch-client-file",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientFile"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientFile"
+              }
+            }
+          }
+        }
+      }
+    },
     "/matches": {
       "get": {
         "summary": "",
@@ -571,127 +655,6 @@
           }
         }
       }
-    },
-    "/answers": {
-      "get": {
-        "summary": "",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/components/schemas/Answer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-answers",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "clientId"
-          }
-        ]
-      },
-      "post": {
-        "summary": "",
-        "operationId": "post-answer",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Answer"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Answer"
-              }
-            }
-          }
-        }
-      },
-      "parameters": []
-    },
-    "/answers/{id}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Answer"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-answer"
-      },
-      "patch": {
-        "summary": "",
-        "operationId": "patch-answer",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Answer"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Answer"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "",
-        "operationId": "delete-answer",
-        "responses": {
-          "204": {
-            "description": "No Content"
-          }
-        }
-      }
     }
   },
   "components": {
@@ -762,6 +725,15 @@
           },
           "city": {
             "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "required": [
@@ -773,7 +745,41 @@
           "phone",
           "gender",
           "birthdate",
-          "city"
+          "city",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "ClientFile": {
+        "type": "object",
+        "title": "ClientFile",
+        "additionalProperties": false,
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/Answer"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "required": [
+          "clientId",
+          "answers",
+          "createdAt",
+          "updatedAt"
         ]
       },
       "AuthPayloadToken": {
@@ -1117,25 +1123,12 @@
           }
         ]
       },
-      "Answer": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/AnswerString"
-          },
-          {
-            "$ref": "#/components/schemas/AnswerNumber"
-          }
-        ]
-      },
       "AnswerString": {
         "type": "object",
         "title": "AnswerString",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
-          },
-          "clientId": {
             "type": "string"
           },
           "questionId": {
@@ -1148,7 +1141,6 @@
         },
         "required": [
           "id",
-          "clientId",
           "questionId",
           "value"
         ]
@@ -1161,9 +1153,6 @@
           "id": {
             "type": "string"
           },
-          "clientId": {
-            "type": "string"
-          },
           "questionId": {
             "type": "string"
           },
@@ -1174,9 +1163,18 @@
         },
         "required": [
           "id",
-          "clientId",
           "questionId",
           "value"
+        ]
+      },
+      "Answer": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AnswerString"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerNumber"
+          }
         ]
       }
     }
