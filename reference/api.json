@@ -1124,9 +1124,19 @@
             "type": "array",
             "uniqueItems": true,
             "items": {
-              "type": [
-                "string",
-                "number"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "properties": {}
+                },
+                {
+                  "type": "number",
+                  "properties": {}
+                },
+                {
+                  "properties": {},
+                  "nullable": true
+                }
               ]
             }
           }
