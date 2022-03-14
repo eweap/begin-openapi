@@ -1112,7 +1112,7 @@
           }
         ]
       },
-      "AnswerString": {
+      "AnswerMultiple": {
         "type": "object",
         "title": "AnswerMultiple",
         "additionalProperties": false,
@@ -1154,7 +1154,7 @@
           "value"
         ]
       },
-      "AnswerMultiple": {
+      "AnswerString": {
         "type": "object",
         "title": "AnswerString",
         "additionalProperties": false,
