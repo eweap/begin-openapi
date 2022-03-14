@@ -1114,22 +1114,24 @@
       },
       "AnswerString": {
         "type": "object",
-        "title": "AnswerString",
+        "title": "AnswerMultiple",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "questionId": {
             "type": "string"
           },
           "value": {
-            "type": "string",
-            "nullable": true
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ]
+            }
           }
         },
         "required": [
-          "id",
           "questionId",
           "value"
         ]
@@ -1139,9 +1141,6 @@
         "title": "AnswerNumber",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "questionId": {
             "type": "string"
           },
@@ -1151,7 +1150,24 @@
           }
         },
         "required": [
-          "id",
+          "questionId",
+          "value"
+        ]
+      },
+      "AnswerMultiple": {
+        "type": "object",
+        "title": "AnswerString",
+        "additionalProperties": false,
+        "properties": {
+          "questionId": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
           "questionId",
           "value"
         ]
@@ -1163,6 +1179,9 @@
           },
           {
             "$ref": "#/components/schemas/AnswerNumber"
+          },
+          {
+            "$ref": "#/components/schemas/AnswerMultiple"
           }
         ]
       }
