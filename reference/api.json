@@ -1124,7 +1124,7 @@
             "type": "array",
             "uniqueItems": true,
             "items": {
-              "oneOf": [
+              "anyOf": [
                 {
                   "type": "string",
                   "properties": {}
