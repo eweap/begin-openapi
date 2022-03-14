@@ -1124,20 +1124,7 @@
             "type": "array",
             "uniqueItems": true,
             "items": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "properties": {}
-                },
-                {
-                  "type": "number",
-                  "properties": {}
-                },
-                {
-                  "properties": {},
-                  "nullable": true
-                }
-              ]
+              "type": "string"
             }
           }
         },
