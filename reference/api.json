@@ -893,13 +893,18 @@
             "enum": [
               "text"
             ]
+          },
+          "order": {
+            "type": "number",
+            "minimum": 0
           }
         },
         "required": [
           "id",
           "title",
           "required",
-          "type"
+          "type",
+          "order"
         ]
       },
       "QuestionNumber": {
@@ -923,6 +928,10 @@
               "number"
             ]
           },
+          "order": {
+            "type": "number",
+            "minimum": 0
+          },
           "min": {
             "type": "number",
             "default": 0,
@@ -939,6 +948,7 @@
           "title",
           "required",
           "type",
+          "order",
           "min",
           "max"
         ]
@@ -964,6 +974,10 @@
               "slider"
             ]
           },
+          "order": {
+            "type": "number",
+            "minimum": 0
+          },
           "min": {
             "type": "number",
             "default": 0
@@ -983,6 +997,7 @@
           "title",
           "required",
           "type",
+          "order",
           "min",
           "max",
           "step"
@@ -1009,6 +1024,10 @@
               "checkbox"
             ]
           },
+          "order": {
+            "type": "number",
+            "minimum": 0
+          },
           "options": {
             "type": "array",
             "uniqueItems": true,
@@ -1035,6 +1054,7 @@
           "title",
           "required",
           "type",
+          "order",
           "options"
         ]
       },
@@ -1059,6 +1079,10 @@
               "radio"
             ]
           },
+          "order": {
+            "type": "number",
+            "minimum": 0
+          },
           "options": {
             "type": "array",
             "uniqueItems": true,
@@ -1085,6 +1109,7 @@
           "title",
           "required",
           "type",
+          "order",
           "options"
         ]
       },
