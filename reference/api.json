@@ -263,11 +263,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "$ref": "#/components/schemas/CustomerFile"
-                  }
+                  "$ref": "#/components/schemas/CustomerFile"
                 }
               }
             }
