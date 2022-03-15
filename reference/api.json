@@ -288,13 +288,7 @@
           }
         },
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerFile"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CustomerFileRequestBody"
         }
       },
       "parameters": [
@@ -323,13 +317,7 @@
           }
         },
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerFile"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CustomerFileRequestBody"
         }
       }
     },
@@ -1202,6 +1190,33 @@
             "$ref": "#/components/schemas/AnswerMultiple"
           }
         ]
+      }
+    },
+    "requestBodies": {
+      "CustomerFileRequestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "customerId": {
+                  "type": "string"
+                },
+                "answers": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/Answer"
+                  }
+                }
+              },
+              "required": [
+                "answers"
+              ]
+            }
+          }
+        }
       }
     }
   }
