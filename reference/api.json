@@ -482,6 +482,15 @@
           }
         },
         "operationId": "get-match"
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "delete-match",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
       }
     },
     "/upload": {
