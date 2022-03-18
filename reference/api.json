@@ -196,7 +196,18 @@
       "get": {
         "summary": "",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        },
         "operationId": "get-customer",
         "requestBody": {
           "content": {
