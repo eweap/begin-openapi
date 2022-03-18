@@ -573,6 +573,44 @@
             }
           }
         }
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-questions",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "order": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "order"
+                  ]
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "description": "Used only to update questions order"
       }
     },
     "/questions/{id}": {
